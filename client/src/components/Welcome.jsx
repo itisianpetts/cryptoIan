@@ -1,3 +1,6 @@
+import React, { useContext } from 'react';
+import { TransactionContext } from '../context/TransactionContext';
+
 // Icons
 import { AiFillPlayCircle } from 'react-icons/ai';
 import { SiEthereum } from 'react-icons/si';
@@ -26,8 +29,9 @@ const Input = ({ placeholder, name, type, value }) => (
 );
 
 const Welcome = () => {
+  const { connectWallet, currentAccount } = useContext(TransactionContext);
+
   // Functions
-  const connectWallet = () => {};
   const handleSubmit = () => {};
 
   return (
@@ -40,13 +44,15 @@ const Welcome = () => {
           <p className='text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base'>
             Explore the crypto world. Buy and Sell crypto currencies easily with Crypto Ian
           </p>
-          <button
-            type='button'
-            onClick={connectWallet}
-            className='flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]'
-          >
-            <p className='text-white text-base font-semibold'>Connect Wallet</p>
-          </button>
+          {!currentAccount && (
+            <button
+              type='button'
+              onClick={connectWallet}
+              className='flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]'
+            >
+              <p className='text-white text-base font-semibold'>Connect Wallet</p>
+            </button>
+          )}
 
           <div className='grid sm:grid-cols-3 grid-cols-2 w-full mt-10'>
             <div className={`sm:rounded-tl-2xl rounded-tl-2xl ${commonStyles}`}>Reliability</div>
