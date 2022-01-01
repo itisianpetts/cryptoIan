@@ -13,11 +13,8 @@ import { Loader } from './';
 const commonStyles =
   'min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white';
 
-// Functions
-const handleChange = () => {};
-
 // Components
-const Input = ({ placeholder, name, type, value }) => (
+const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
     type={type}
     placeholder={placeholder}
@@ -29,10 +26,14 @@ const Input = ({ placeholder, name, type, value }) => (
 );
 
 const Welcome = () => {
-  const { connectWallet, currentAccount } = useContext(TransactionContext);
+  const { connectWallet, currentAccount, sendTransaction, formData, handleChange } = useContext(TransactionContext);
 
-  // Functions
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
+    e.preventDefault();
+    if (!addressTo || !amount || !keyword || !message) return;
+    sendTransaction();
+  };
 
   return (
     <div className='flex w-full justify-center items-center'>
