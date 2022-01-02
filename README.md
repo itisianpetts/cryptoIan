@@ -8,3 +8,5 @@
 
 ##### Smart Contract: Solidity, Hardhat & Ethers
 - Deployed via Alchemy
+
+Tested on the Ropsten Test Network via Metamask
