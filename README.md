@@ -1,4 +1,4 @@
-# Send Ethereum with - CryptoIan
+# CryptoIan : Send Ethereum
 
  
 Frontend built with React, Vite, TailwindCss & Ethers.
