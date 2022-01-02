@@ -2,12 +2,14 @@ import React, { useContext } from 'react';
 import { TransactionContext } from '../context/TransactionContext';
 
 // Icons
-import { AiFillPlayCircle } from 'react-icons/ai';
 import { SiEthereum } from 'react-icons/si';
 import { BsInfoCircle } from 'react-icons/bs';
 
 // Components
 import { Loader } from './';
+
+// Utils
+import { shortenAddress } from '../utils/shortenAddress';
 
 // Styles
 const commonStyles =
@@ -32,6 +34,7 @@ const Welcome = () => {
     sendTransaction,
     formData,
     handleChange,
+    isLoading,
   } = useContext(TransactionContext);
 
   const handleSubmit = (e) => {
@@ -43,7 +46,7 @@ const Welcome = () => {
 
   return (
     <div className="flex w-full justify-center items-center">
-      <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
+      <div className="flex mf:flex-row flex-col items-center justify-between md:p-20 py-12 px-4">
         <div className="flex flex-1 justify-start flex-col mf:mr-10">
           <h1 className="text-3xl sm:text-5xl text-white text-gradient py-1">
             Send Crypto <br /> across the world
@@ -92,7 +95,9 @@ const Welcome = () => {
                 <BsInfoCircle fontSize={17} color="#fff" />
               </div>
               <div>
-                <p className="text-white font-light text-sm">Wallet Address</p>
+                <p className="text-white font-light text-sm">
+                  {shortenAddress(currentAccount)}
+                </p>
                 <p className="text-white font-semibold text-lg mt-1">
                   Ethereum
                 </p>
@@ -125,7 +130,7 @@ const Welcome = () => {
               handleChange={handleChange}
             />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
-            {false ? (
+            {isLoading ? (
               <Loader />
             ) : (
               <button
