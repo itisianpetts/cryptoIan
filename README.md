@@ -5,4 +5,4 @@
 - Solidity, Hardhat & Ethers: Backend
 
 - Frontend deployed to https://crypto-ian.com/
-- Blockchain deployed via https://www.alchemy.com/
+- Blockchain deployed via Alchemy
