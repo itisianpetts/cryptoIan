@@ -58,8 +58,6 @@ export const TransactionProvider = ({ children }) => {
           })
         );
 
-        console.log(structuredTransactions);
-
         setTransactions(structuredTransactions);
       } else {
         console.log('Ethereum is not present');
@@ -77,13 +75,12 @@ export const TransactionProvider = ({ children }) => {
 
       if (accounts.length) {
         setCurrentAccount(accounts[0]);
-
         getAllTransactions();
-      } else {
-        console.log('No accounts found');
+        checkIfTransactionsExists();
       }
     } catch (error) {
-      console.log(error);
+      console.log('No Wallet Connected Error:', error);
+      throw new Error('No Account Connected');
     }
   };
 
@@ -100,9 +97,8 @@ export const TransactionProvider = ({ children }) => {
         );
       }
     } catch (error) {
-      console.log(error);
-
-      throw new Error('No ethereum object');
+      console.log('Check If Transactions Exists Error:', error);
+      throw new Error('Transactions Exists Error');
     }
   };
 
@@ -115,10 +111,11 @@ export const TransactionProvider = ({ children }) => {
       });
 
       setCurrentAccount(accounts[0]);
+      window.location.reload();
     } catch (error) {
       console.log(error);
 
-      throw new Error('No ethereum object');
+      throw new Error('Connect Wallet Error:', error);
     }
   };
 
@@ -158,21 +155,23 @@ export const TransactionProvider = ({ children }) => {
           await transactionsContract.getTransactionCount();
 
         setTransactionCount(transactionsCount.toNumber());
+        window.alert(
+          `Send Transaction Successful - ${transactionHash.hash} - Please Close`
+        );
 
         window.location.reload();
       } else {
         console.log('No ethereum object');
       }
     } catch (error) {
-      console.log(error);
+      console.log('Send Transaction Error:', error);
 
-      throw new Error('No ethereum object');
+      throw new Error('Transaction Error');
     }
   };
 
   useEffect(() => {
     checkIfWalletIsConnect();
-    checkIfTransactionsExists();
   }, [transactionCount]);
 
   return (
