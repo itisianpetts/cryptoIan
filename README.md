@@ -18,13 +18,13 @@
 | ------ |
 
 <br />
-![2](https://user-images.githubusercontent.com/66824231/147881957-4daf3376-3d34-41cb-9d3e-28c07e9df4cd.jpg)
-| ------ |
 
+![2](https://user-images.githubusercontent.com/66824231/147881998-da43ab77-b449-4727-96c9-30364d091690.jpg)
+| ------ |
 <br />
 
 ### Login via Metamask
-![1](https://user-images.githubusercontent.com/66824231/147881965-288049f6-735a-41b5-8c88-ff8b9f8f3448.jpg)
+![3](https://user-images.githubusercontent.com/66824231/147882014-82ff914b-318f-4cac-9633-131b255c9cc4.jpg)
 | ------ |
 
 <br />
