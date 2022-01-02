@@ -2,8 +2,8 @@
 
  
 #### Frontend: React, Vite & TailwindCss
-- Frontend deployed to https://crypto-ian.com/
+- Deployed to https://crypto-ian.com/
 
 
 #### Smart Contract: Solidity, Hardhat & Ethers
-- Blockchain deployed via Alchemy
+- Deployed via Alchemy
